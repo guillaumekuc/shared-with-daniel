@@ -1,25 +1,9 @@
-# Working together
+# How we work (training wheels mode)
 
-## Daily flow
+No rules yet. Everyone works directly on `main`.
 
-1. Start from an up-to-date `main`:
-   ```bash
-   git switch main
-   git pull
-   ```
-2. Create a branch for your change: `git switch -c <your-name>/<short-topic>`
-   (e.g. `guillaume/add-login`, `daniel/fix-typo`).
-3. Commit small, focused changes with clear messages.
-4. Push and open a Pull Request:
-   ```bash
-   git push -u origin HEAD
-   gh pr create --fill
-   ```
-5. The other person reviews. Once approved, **squash & merge** on GitHub and delete the branch.
+1. `git pull` before you start.
+2. Make your changes.
+3. `git add .` → `git commit -m "what you did"` → `git push`
 
-## Rules of thumb
-
-- Never push directly to `main`; it's protected and only changes through PRs.
-- Pull `main` often and rebase/merge it into your branch to keep conflicts small.
-- If you're both touching the same area, say so before you start.
-- Never commit secrets. Use `.env` (gitignored) and keep a `.env.example` up to date.
+New to all this? Start with [START-HERE.md](START-HERE.md).

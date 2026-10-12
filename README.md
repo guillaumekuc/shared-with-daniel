@@ -1,5 +1,8 @@
 # shared-with-daniel
 
-Shared project between Guillaume and Daniel.
+A practice project for Guillaume and Daniel to learn Git and GitHub together.
+Nothing serious lives here, so feel free to break things.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for how we work together.
+👉 **Daniel: start with [START-HERE.md](START-HERE.md).**
+
+Then sign the [guestbook](guestbook.md).
