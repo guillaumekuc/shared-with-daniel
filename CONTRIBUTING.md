@@ -6,4 +6,4 @@ No rules yet. Everyone works directly on `main`.
 2. Make your changes.
 3. `git add .` → `git commit -m "what you did"` → `git push`
 
-New to all this? Start with [START-HERE.md](START-HERE.md).
+New to all this? Start with [COMMENCER-ICI.md](COMMENCER-ICI.md) (FR) or [START-HERE.md](START-HERE.md) (EN).

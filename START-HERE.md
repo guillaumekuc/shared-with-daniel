@@ -1,5 +1,7 @@
 # Start here: Git & GitHub from zero
 
+🇫🇷 *Version française : [COMMENCER-ICI.md](COMMENCER-ICI.md)*
+
 Hi Daniel 👋 This guide takes you from "never used Git" to "I can share my changes with Guillaume".
 It takes about 30 minutes the first time. You only do Parts 1–3 once.
 
@@ -36,31 +38,28 @@ The whole workflow is three moves:
 
 You need two programs: **Git** and the **GitHub CLI** (`gh`), which handles logging in for you.
 
-### On Windows
-
-1. Install Git: <https://git-scm.com/download/win>. Download it, run it, and click *Next* on every screen (the defaults are fine).
-2. Install GitHub CLI: <https://cli.github.com>. Download the Windows installer and run it.
-3. Open the program called **Git Bash** (search for it in the Start menu). That's your terminal from now on.
-
-### On Mac
-
-1. Open the **Terminal** app (press Cmd+Space and type "Terminal").
-2. Type `git --version` and press Enter. If macOS offers to install "command line developer tools", click **Install**.
-3. Install GitHub CLI: download the macOS installer from <https://cli.github.com> and run it.
+1. **Install Git:** <https://git-scm.com/download/win>
+   Download it and run the installer. Click *Next* on every screen, **except one**:
+   on the *"Choosing the default editor used by Git"* screen, pick **"Use Notepad as Git's default editor"**.
+   (The default is an editor called Vim that is confusing for beginners.)
+2. **Install GitHub CLI:** <https://cli.github.com>
+   Download the Windows installer and run it.
+3. **Open Git Bash.** Search for "Git Bash" in the Start menu. That's your terminal from now on.
 
 ### Check that it worked
 
-Close and reopen your terminal, then type these one at a time (press Enter after each):
+Type these one at a time (press Enter after each):
 
 ```bash
 git --version
 gh --version
 ```
 
-Each should print a version number. If you see "command not found", restart the computer and try again.
+Each should print a version number. If you see "command not found", close Git Bash and open it again.
+If that doesn't help, restart the computer.
 
 > 💡 **Terminal tips:** You type a command and press Enter. Commands are case-sensitive.
-> To paste in Git Bash, use **Shift+Insert** or right-click → Paste.
+> To paste in Git Bash, use **Shift+Insert** or right-click → Paste. (Ctrl+V doesn't work there.)
 
 ---
 
@@ -92,19 +91,17 @@ It shows a code. Press Enter, your browser opens, you paste the code and approve
 
 ### Download the project
 
-Pick where you want the folder to go. For example, this puts it in your home folder:
-
 ```bash
 cd ~
 git clone https://github.com/guillaumekuc/shared-with-daniel.git
 cd shared-with-daniel
 ```
 
-You now have a folder called `shared-with-daniel` with all the files in it.
-You can open it in your normal file explorer and edit files with any text editor.
+This creates a `shared-with-daniel` folder in your user folder (`C:\Users\YourName\shared-with-daniel`).
+You can open it in File Explorer and edit the files with any text editor (Notepad works fine).
 
-> 💡 `cd` means "change directory" (go into a folder). `cd ~` goes to your home folder.
-> Every time you open a new terminal, run `cd ~/shared-with-daniel` to get back into the project.
+> 💡 `cd` means "change directory" (go into a folder). `cd ~` goes to your user folder.
+> Every time you open Git Bash, run `cd ~/shared-with-daniel` to get back into the project.
 
 ---
 
@@ -153,9 +150,27 @@ git push                    # 4. share it
 Handy extras:
 
 ```bash
-git status      # what's changed? (use it all the time, it's harmless)
+git status          # what's changed? (use it all the time, it's harmless)
 git log --oneline   # list of past commits (press q to quit)
 ```
+
+---
+
+## Bonus: Git with buttons instead of commands (GUIs)
+
+Once the terminal routine makes sense, you can use a **Git GUI**: an app that does the same
+pull / commit / push with buttons and shows your changes visually. It's the same Git underneath,
+so you can switch between the terminal and a GUI whenever you like.
+
+- **[Sublime Merge](https://www.sublimemerge.com)** is what Guillaume uses, so he can help you with it. It's fast and clean.
+  It's free to try with no time limit, and only shows an occasional reminder to buy a licence.
+- **[GitHub Desktop](https://desktop.github.com)** is free, made by GitHub, and very beginner-friendly.
+
+To use either one, open the `shared-with-daniel` folder you already cloned
+(*File → Open Repository* in Sublime Merge, *File → Add local repository* in GitHub Desktop).
+
+> 💡 Learn the commands first anyway. They help you understand what the buttons do,
+> and when something goes wrong, error messages and help online are written in terms of commands.
 
 ---
 
@@ -164,10 +179,9 @@ git log --oneline   # list of past commits (press q to quit)
 **`git push` says "rejected" / "fetch first" / "non-fast-forward".**
 Guillaume pushed something since your last pull. Run `git pull`, then `git push` again.
 
-**A weird text editor opened after `git pull`** (a screen full of `~` characters, or a message about "merge").
-Git wants a note for combining your work with Guillaume's. The default note is fine.
-- If you see `~` characters on the left (this is vim): type `:wq` and press Enter.
-- If the bottom says `^X Exit` (this is nano): press Ctrl+X.
+**Notepad opened by itself after `git pull`.**
+Git wants a note for combining your work with Guillaume's. The default text is fine:
+just close Notepad (save if it asks), and Git continues.
 
 **"CONFLICT" after `git pull`.**
 You and Guillaume edited the same lines. Open the file and you'll see something like:
@@ -187,6 +201,8 @@ git add .
 git commit -m "Fix conflict"
 git push
 ```
+
+(GUIs like Sublime Merge make conflicts easier to see and fix.)
 
 **"Permission denied" or 403 on push.**
 You haven't accepted Guillaume's invitation yet (see Part 1), or you need to run `gh auth login` again.
